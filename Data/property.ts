@@ -1,25 +1,29 @@
+import images from "@/types/images"
+
 export const propertyData = [
     {
         id:1,
         name:"Novel Appartment ",
-        subCategory:"rental",
         category:"Guest House",
+        subCategory:"rental",
         description:"lorem ipsium dolor sit this is just dummy data and will be changed in the future",
         location:"Douala",
         price:50000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.apartment3
     },
       {
         id:2,
         name:"Ford Mustang",
-        subCategory:"suv_siddan",
         category:"Car",
+        subCategory:"suv_siddan",
         description:"lorem ipsium dolor sit this is just dummy data and will be changed in the future",
         location:"Buea",
         price:200000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.mustang
     },
       {
         id:3,
@@ -30,7 +34,8 @@ export const propertyData = [
         location:"Douala",
         price:75000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.apartment2
     },
       {
         id:4,
@@ -41,7 +46,8 @@ export const propertyData = [
         location:"Bamenda",
         price:40000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.apartment1
     },
       {
         id:5,
@@ -52,7 +58,8 @@ export const propertyData = [
         location:"Douala",
         price:50000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.tucson
     },
       {
         id:6,
@@ -63,7 +70,8 @@ export const propertyData = [
         location:"Yaounde",
         price:25000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.hotel1
     },
       {
         id:7,
@@ -74,7 +82,8 @@ export const propertyData = [
         location:"Douala",
         price:55000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.apartment1
     },
       {
         id:8,
@@ -85,7 +94,8 @@ export const propertyData = [
         location:"Buea",
         price:50000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.apartment2
     },
       {
         id:9,
@@ -96,7 +106,8 @@ export const propertyData = [
         location:"Douala",
         price:50000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.brabus
     },
       {
         id:10,
@@ -107,6 +118,7 @@ export const propertyData = [
         location:"Douala",
         price:100000,
         listed_by:"John Doe",
-        created_at:"20/11/2025"
+        created_at:"20/11/2025",
+        image:images.apartment3
     }
 ]
