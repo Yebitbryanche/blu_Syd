@@ -1,3 +1,15 @@
+ export interface Props{
+  id:number
+  name:string
+  category:string
+  subCategory:string
+  description:string
+  location:string
+  price:number
+  listed_by:string
+  created_at:string
+  image:any
+}
 import images from "@/types/images"
 
 export const propertyData = [

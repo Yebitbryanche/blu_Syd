@@ -5,6 +5,8 @@ const Triangle = () => {
   return (
      <View
     style={{
+      position:'fixed',
+      top:0,
       width: 0,
       height: 0,
       backgroundColor: "transparent",
