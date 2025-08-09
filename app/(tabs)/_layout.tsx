@@ -4,7 +4,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from "expo-router";
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 
 export default function Layout() {
@@ -13,6 +13,14 @@ export default function Layout() {
         headerShown:false,
         tabBarActiveTintColor:"#005EE9",
         tabBarInactiveTintColor:"#233E93",
+        tabBarButton: (props) => (
+          <Pressable
+            android_ripple={null} // code to disable ripple on android
+            style={props.style}
+            onPress={props.onPress}
+          >
+            {props.children}
+          </Pressable>),
         tabBarStyle:{
           backgroundColor:"#ECF4FC",
           position:"relative",

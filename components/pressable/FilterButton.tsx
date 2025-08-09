@@ -44,7 +44,7 @@ const FilterButton = ({className}:ButtonItems) => {
           <TouchableOpacity onPress={() => handleActiveState(index)} key={index} 
           className={activeFilter === index?`mx-3 p-3 bg-blue-600 w-[140px] flex justify-center gap-x-3 flex-row rounded-full`:`mx-3 p-3 border border-blue-600 border-1 w-[140px] flex  gap-x-3 flex-row justify-center rounded-full`}>
             <Text className={activeFilter === index?`text-white font-bold`:`text-blue-600 font-bold`}>{item.icon}</Text>
-            <Text  className={activeFilter === index?`text-white font-bold`:`text-blue-600 font-bold`}>{item.title}</Text>
+            <Text  className={activeFilter === index?`text-white font-bold text-lg`:`text-lg text-blue-600 font-bold`}>{item.title}</Text>
           </TouchableOpacity>
         ))
       }

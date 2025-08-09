@@ -1,5 +1,7 @@
 import Slide from '@/components/carousel/Slide';
+import FilterContent from '@/components/filtercontent';
 import FilterButton from '@/components/pressable/FilterButton';
+import { filterCardData } from '@/Data/filterata';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,13 +9,20 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Home = () => {
   return (
-    <SafeAreaView className='flex flex-col'>
+    <SafeAreaView
+       style={{ flex: 1 }} 
+       edges={['top', 'left', 'right']}
+    >
+      
       <ScrollView>
-      <View className='flex-1'>
+      <View>
         <Slide/>
       </View>
       <View className='flex-1 mt-4'> {/* {filters} */}
-        <FilterButton className='bg-primary p-3 w-[100px] flex items-center rounded-3xl'/>
+        <FilterButton/>
+      </View>
+      <View>
+        <FilterContent items={filterCardData}/>
       </View>
       </ScrollView>
     </SafeAreaView>
