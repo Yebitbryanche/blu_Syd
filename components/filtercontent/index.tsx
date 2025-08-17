@@ -1,3 +1,4 @@
+import images from '@/types/images';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
@@ -34,6 +35,7 @@ const FilterContent = ({items}:Props) => {
                 items.map((item,index)=>(
                     <TouchableOpacity className='rounded-xl w-[219px] h-[198px] overflow-hidden' key={index}>
                         <Image source={item.image} className='w-full h-full'/>
+                        <Image source={images.gradient} className='absolute'/>
                             <TouchableOpacity className='absolute right-2 top-2'>
                                 <AntDesign name="hearto" size={24} color="blue"  />
                             </TouchableOpacity>
