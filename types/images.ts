@@ -8,6 +8,7 @@ import hotel1 from "@/assets/images/Rectangle 18 (1).png"
 import brabus from "@/assets/images/Rectangle 18 (2).png"
 import tucson from "@/assets/images/Rectangle 18 (3).png"
 import house1 from "@/assets/images/Rectangle 18.png"
+import profile from "@/assets/images/profilePic.png"
 
 export default{
  
@@ -20,5 +21,6 @@ export default{
     tucson,
     whiteCar,
     house1,
-    gradient
+    gradient,
+    profile
 }

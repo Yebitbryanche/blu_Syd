@@ -1,12 +1,12 @@
-import React from 'react';
-import { TextInput, View } from 'react-native';
+import React from "react";
+import { TextInput, View } from "react-native";
 
 const Search = () => {
   return (
     <View>
-      <TextInput/>
+      <TextInput />
     </View>
   );
-}
+};
 
 export default Search;
