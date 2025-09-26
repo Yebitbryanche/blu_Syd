@@ -1,23 +1,19 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
-import React, { useState } from "react";
+import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
-interface prop{
-    time: string
+interface Prop {
+  time: string;
+  expanded: boolean;
+  onToggle: () => void;
 }
 
-const Duration: React.FC<prop> = ({time}) => {
-  const [showIcon, setShowIcon] = useState(false);
-
-  const toggleIcon = () => {
-    setShowIcon((prev) => !prev);
-  };
-
+const Duration: React.FC<Prop> = ({ time, expanded, onToggle }) => {
   return (
     <View className="flex flex-row items-center p-5 gap-3">
       <Text className="text-2xl text-primary">{time}</Text>
-      <TouchableOpacity onPress={toggleIcon}>
-        {showIcon ? (
+      <TouchableOpacity onPress={onToggle}>
+        {expanded ? (
           <AntDesign name="up" size={18} color="blue" />
         ) : (
           <AntDesign name="down" size={18} color="blue" />
