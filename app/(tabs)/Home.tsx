@@ -1,32 +1,63 @@
-import Slide from '@/components/carousel/Slide';
-import FilterContent from '@/components/filtercontent';
-import FilterButton from '@/components/pressable/FilterButton';
-import { filterCardData } from '@/Data/filterata';
-import React from 'react';
-import { ScrollView, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
+import Slide from "@/components/carousel/Slide";
+import FilterContent from "@/components/filtercontent";
+import FilterButton from "@/components/pressable/FilterButton";
+import { filterCardData } from "@/Data/filterata";
+import Ionicons from '@expo/vector-icons/Ionicons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import React, { useState } from "react";
+import { ScrollView, Text, View } from "react-native";
 
 const Home = () => {
+  const [activeCategory, setActiveCategory] = useState("Guest House");
+  const [modalVisible, setModalVisible] = useState(false);
+
+  // Filter items based on activeCategory
+  const filteredItems =
+    activeCategory === "All"
+      ? filterCardData
+      : filterCardData.filter((item) => item.type === activeCategory);
+
+  // Open modal for a category
+  const openModal = (category: string) => {
+    setActiveCategory(category);
+    setModalVisible(true);
+  };
+
   return (
-    <SafeAreaView
-       style={{ flex: 1 }} 
-       edges={['top', 'left', 'right']}
-    >
-      
+    <View style={{ flex: 1 }}>
       <ScrollView>
-      <View>
-        <Slide/>
-      </View>
-      <View className='flex-1 mt-4'> {/* {filters} */}
-        <FilterButton/>
-      </View>
-      <View>
-        <FilterContent items={filterCardData}/>
-      </View>
+        <Slide />
+
+        <View className="flex-1 mt-4">
+          <FilterButton
+            onPress={(index, type) => setActiveCategory(type)}
+          />
+        </View>
+
+        <View>
+          <FilterContent
+            items={filteredItems}
+            onSeeAll={() => openModal(activeCategory)} // pass modal trigger
+          />
+        </View>
       </ScrollView>
-    </SafeAreaView>
+
+      {/* Modal */}
+      {
+        modalVisible?
+        <View className="absolute top-0 left-0">
+        <View>
+          <MaterialCommunityIcons name="undo-variant" size={24} color="black" />
+          <Text>Guest Houses</Text>
+          <Ionicons name="search-outline" size={24} color="black" />
+
+        </View>
+      </View>
+      :
+      null
+      }
+    </View>
   );
-}
+};
 
 export default Home;

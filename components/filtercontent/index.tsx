@@ -6,9 +6,12 @@ import { Link } from 'expo-router';
 import React from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-interface Props{
-    items:filterDataTypes[]
+
+export interface FilterDataProps {
+  items: filterDataTypes[];
+  onSeeAll?: () => void; // optional callback
 }
+
 
 export interface filterDataTypes{
     title:string
@@ -16,24 +19,26 @@ export interface filterDataTypes{
     ratings:string
     price:string
     image:any
+    type?:string
 
 }
 
-const FilterContent = ({items}:Props) => {
+const FilterContent = ({items, onSeeAll}:FilterDataProps) => {
   return (
-    <View>
+    <View className='p-2'>
         <View className='flex flex-row justify-between pt-2 px-1'>
             <Text className='text-2xl font-bold'>Our Top Picks</Text>
-            <Link className='text-blue-600' href='/'>See All</Link>
+            <Text className='text-blue-600' onPress={onSeeAll}>See All</Text>
         </View>
         <ScrollView
             horizontal
             className='pt-3'
+            bounces={false}
         >
             <View className='flex flex-row gap-x-4'>
                {
                 items.map((item,index)=>(
-                    <TouchableOpacity className='rounded-xl w-[219px] h-[198px] overflow-hidden' key={index}>
+                    <View className='rounded-xl w-[200px] h-[180px] overflow-hidden' key={index}>
                         <Image source={item.image} className='w-full h-full'/>
                         <Image source={images.gradient} className='absolute'/>
                             <TouchableOpacity className='absolute right-2 top-2'>
@@ -42,23 +47,23 @@ const FilterContent = ({items}:Props) => {
                             <View className='absolute bottom-0 p-2 flex-col items-center gap-y-3'>
                                 <View className='flex flex-row justify-between w-full items-center'>
                                     <View>
-                                        <Text className='text-white font-bold text-xl'>{item.title}</Text>
+                                        <Text className='text-white font-bold text-lg'>{item.title}</Text>
                                         <View className='flex flex-row items-center gap-x-1'>
-                                            <Text className='text-blue-600'><FontAwesome6 name="location-dot" size={20} /></Text>
-                                            <Text className='text-white font-medium'>{item.location}</Text>
+                                            <Text className='text-blue-600'><FontAwesome6 name="location-dot" size={15} /></Text>
+                                            <Text className='text-white text-sm'>{item.location}</Text>
                                         </View>
                                     </View>
                                     <View>
                                         <View className='flex flex-row gap-x-1'>
-                                            <Text className='text-yellow-500'><FontAwesome name="star" size={24} /></Text>
-                                            <Text className='text-white'>{item.ratings} Ratings</Text>
+                                            <Text className='text-yellow-500'><FontAwesome name="star" size={15} /></Text>
+                                            <Text className='text-white text-sm'>{item.ratings} Ratings</Text>
                                         </View>
-                                        <Text className='text-white'>Price {item.price}</Text>
+                                        <Text className='text-white text-sm'>Price {item.price}</Text>
                                     </View>
                                 </View>
-                                <TouchableOpacity className='bg-gray-200 p-3 rounded-full w-[120px] items-center'><Text className='text-blue-600 font-bold'>View Details</Text></TouchableOpacity>
+                                <TouchableOpacity className='bg-gray-200 p-3 rounded-full w-[120px] items-center'><Link href="../details/more" className='text-blue-600 font-bold'>View Details</Link></TouchableOpacity>
                             </View>
-                    </TouchableOpacity>
+                    </View>
                 ))
                }
             </View>
