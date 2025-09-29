@@ -1,21 +1,30 @@
 import Slide from "@/components/carousel/Slide";
 import FilterContent from "@/components/filtercontent";
 import FilterButton from "@/components/pressable/FilterButton";
+import Search from "@/components/search";
 import { filterCardData } from "@/Data/filterata";
-import Ionicons from '@expo/vector-icons/Ionicons';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import React, { useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  View,
+} from "react-native";
 
 const Home = () => {
   const [activeCategory, setActiveCategory] = useState("Guest House");
   const [modalVisible, setModalVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // 🔹 track search input
 
-  // Filter items based on activeCategory
-  const filteredItems =
-    activeCategory === "All"
-      ? filterCardData
-      : filterCardData.filter((item) => item.type === activeCategory);
+  // Filter items based on activeCategory & search query
+  const filteredItems = filterCardData.filter((item) => {
+    const matchesCategory =
+      activeCategory === "All" || item.type === activeCategory;
+    const matchesSearch = item.title
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   // Open modal for a category
   const openModal = (category: string) => {
@@ -24,39 +33,33 @@ const Home = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <ScrollView>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"} // 🔹 "padding" works well on iOS, "height" on Android
+    >
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled" // 🔹 dismiss keyboard on taps
+      >
+        <Search
+          className="flex self-center absolute top-10 z-50 bg-zinc-100 w-[80%] rounded-full"
+          onchange={(text: string) => setSearchQuery(text)}
+        />
+
         <Slide />
 
         <View className="flex-1 mt-4">
-          <FilterButton
-            onPress={(index, type) => setActiveCategory(type)}
-          />
+          <FilterButton onPress={(index, type) => setActiveCategory(type)} />
         </View>
 
         <View>
           <FilterContent
             items={filteredItems}
-            onSeeAll={() => openModal(activeCategory)} // pass modal trigger
+            onSeeAll={() => openModal(activeCategory)}
           />
         </View>
       </ScrollView>
-
-      {/* Modal */}
-      {
-        modalVisible?
-        <View className="absolute top-0 left-0">
-        <View>
-          <MaterialCommunityIcons name="undo-variant" size={24} color="black" />
-          <Text>Guest Houses</Text>
-          <Ionicons name="search-outline" size={24} color="black" />
-
-        </View>
-      </View>
-      :
-      null
-      }
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

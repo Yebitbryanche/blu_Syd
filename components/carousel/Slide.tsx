@@ -1,7 +1,6 @@
 import { Carousel } from '@/Data/carusel';
 import React, { useEffect, useRef, useState } from 'react';
 import { Dimensions, FlatList, Image, TouchableOpacity, View } from 'react-native';
-import Search from '../search';
 
 const { width } = Dimensions.get("window");
 
@@ -27,7 +26,6 @@ const Slide = () => {
 
   return (
     <View>
-      <Search className='flex self-center absolute top-10 z-50 bg-zinc-100 w-[80%] rounded-full'/>
       <FlatList
         data={Carousel}
         ref={flatListRef}
