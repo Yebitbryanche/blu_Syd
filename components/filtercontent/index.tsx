@@ -1,10 +1,10 @@
-import images from '@/types/images';
-import AntDesign from '@expo/vector-icons/AntDesign';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import { Link } from 'expo-router';
-import React from 'react';
-import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import images from "@/types/images";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import { Link } from "expo-router";
+import React from "react";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 
 export interface FilterDataProps {
@@ -70,6 +70,6 @@ const FilterContent = ({items, onSeeAll}:FilterDataProps) => {
         </ScrollView>
     </View>
   );
-}
+};
 
 export default FilterContent;

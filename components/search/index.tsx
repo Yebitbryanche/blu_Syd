@@ -19,6 +19,6 @@ const Search = ({className,onchange}:Props) => {
       <Ionicons name="filter" size={24} color="gray" className='absolute right-[1rem] top-2'/>
     </View>
   );
-}
+};
 
 export default Search;

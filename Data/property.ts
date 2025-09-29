@@ -8,6 +8,7 @@
   price:number
   listed_by:string
   created_at:string
+  rating: string
   image:any
 }
 import images from "@/types/images"
@@ -23,6 +24,7 @@ export const propertyData = [
         price:50000,
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.apartment3
     },
       {
@@ -35,6 +37,7 @@ export const propertyData = [
         price:200000,
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.mustang
     },
       {
@@ -47,6 +50,7 @@ export const propertyData = [
         price:75000,
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.apartment2
     },
       {
@@ -59,6 +63,7 @@ export const propertyData = [
         price:40000,
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.apartment1
     },
       {
@@ -67,10 +72,11 @@ export const propertyData = [
         category:"Car",
         subCategory:"SUV",
         description:"lorem ipsium dolor sit this is just dummy data and will be changed in the future",
-        location:"Douala",
-        price:50000,
+        location:"Douala-Cameroon",
+        price:50000, 
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.tucson
     },
       {
@@ -83,6 +89,7 @@ export const propertyData = [
         price:25000,
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.hotel1
     },
       {
@@ -95,6 +102,7 @@ export const propertyData = [
         price:55000,
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.apartment1
     },
       {
@@ -107,6 +115,7 @@ export const propertyData = [
         price:50000,
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.apartment2
     },
       {
@@ -119,6 +128,7 @@ export const propertyData = [
         price:50000,
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.brabus
     },
       {
@@ -131,6 +141,7 @@ export const propertyData = [
         price:100000,
         listed_by:"John Doe",
         created_at:"20/11/2025",
+        rating: " 4.5 ratings",
         image:images.apartment3
     }
 ]
