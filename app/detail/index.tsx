@@ -61,7 +61,18 @@ const FilterContent = ({items, onSeeAll}:FilterDataProps) => {
                                         <Text className='text-white text-sm'>Price {item.price}</Text>
                                     </View>
                                 </View>
-                                <TouchableOpacity className='bg-gray-200 p-3 rounded-full w-[120px] items-center'><Link href="../details/more" className='text-blue-600 font-bold'>View Details</Link></TouchableOpacity>
+                                <TouchableOpacity className='bg-gray-200 p-3 rounded-full w-[120px] items-center'><Link href={{
+                                    pathname:"./detail/[id]",
+                                    params:{
+                                        id:item.title,
+                                        title:item.title,
+                                        location:item.location,
+                                        ratings:item.ratings,
+                                        price:item.price,
+                                        type:item.type
+                                    }
+                                }} 
+                                    className='text-blue-600 font-bold'>View Details</Link></TouchableOpacity>
                             </View>
                     </View>
                 ))

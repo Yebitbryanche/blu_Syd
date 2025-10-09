@@ -1,8 +1,9 @@
+import FilterContent from "@/app/detail";
 import Slide from "@/components/carousel/Slide";
-import FilterContent from "@/components/filtercontent";
 import FilterButton from "@/components/pressable/FilterButton";
 import Search from "@/components/search";
 import { filterCardData } from "@/Data/filterata";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   KeyboardAvoidingView,
@@ -13,7 +14,6 @@ import {
 
 const Home = () => {
   const [activeCategory, setActiveCategory] = useState("Guest House");
-  const [modalVisible, setModalVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState(""); // 🔹 track search input
 
   // Filter items based on activeCategory & search query
@@ -26,10 +26,17 @@ const Home = () => {
     return matchesCategory && matchesSearch;
   });
 
-  // Open modal for a category
-  const openModal = (category: string) => {
-    setActiveCategory(category);
-    setModalVisible(true);
+  
+  const showallProducts = (category: string) => {
+   if(category === "Guest House"){
+    router.push("../Pages/guesthouse")
+   }
+   else if(category === "Car"){
+    router.push("../Pages/cars")
+   }
+   else{
+    router.push("../Pages/hotels")
+   }
   };
 
   return (
@@ -55,7 +62,7 @@ const Home = () => {
         <View>
           <FilterContent
             items={filteredItems}
-            onSeeAll={() => openModal(activeCategory)}
+            onSeeAll={() => showallProducts(activeCategory)}
           />
         </View>
       </ScrollView>
